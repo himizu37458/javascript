@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <title>Javascript practice</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Javascript練習">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    body {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: skyblue;
+      cursor: pointer;
+      transition: 0.8s;
+      margin: 0 8px 8px 0;
+      text-align: center;
+      line-height: 100px;
+    }
+    .win {
+      background: pink;
+      border-radius: 50%;
+      transform: rotate(360deg);
+    }
+    .lose {
+      transform: scale(0.9);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- <div class="box" id="target1"></div>
+  <div class="box" id="target2"></div>
+  <div class="box" id="target3"></div> -->
+
+  <!-- bodyの最後にscriptタグで記述 -->
+  <script>
+
+    // エラーチェックのための記述
+    'use strict';
+
+
+
+    // const(定数を使うときに記述) =以降にわりあてたいものを記述
+    // const target1 = document.getElementById('target1');
+    // const target2 = document.getElementById('target2');
+    // const target3 = document.getElementById('target3');
+
+    // document(全体)からこのidを指定して、イベント(click)をadd(追加)する
+    // target1.addEventListener('click', () => {
+
+      // () => {}はアロー関数。中に何行でも指定できる
+      // document.getElementById('target').style.background = 'pink';
+      // document.getElementById('target').style.borderRadius = '50%';
+
+      // cssに作ったclassをaddすることもできる
+    //   target1.classList.toggle('circle');
+    // });
+
+    // target2.addEventListener('click', () => {
+    //   target2.classList.toggle('circle');
+    // });
+
+  // target3.addEventListener('click', () => {
+  //   target3.classList.toggle('circle');
+  // });
+
+
+  const num = 5;
+  // Math.randum 0-1のランダムな数値の割当×num /  floorが少数点切り捨て = 0-4の数値がランダムにひとつだけ選ばれる！
+  const winner = Math.floor(Math.random() * num);
+
+  // 繰り返しのfor文
+  for (let i = 0; i < num; i++) {
+
+  // divを作成して定数化
+  const div = document.createElement('div');
+  div.classList.add('box');
+
+  // divの中のテキストをiにする処理
+  // div.textContent = i;
+
+  div.addEventListener('click', () => {
+    // div.classList.toggle('circle');
+
+    if (i === winner) {
+      div.textContent = 'Win!';
+      div.classList. add('win');
+    } else {
+      div.textContent = 'Lose!';
+      div.classList. add('lose');
+    }
+  })
+
+  // bodyの子要素として追加してあげる(ブラウザにこれで反映される) タグを追加してるから''はいらない
+  document.body.appendChild(div);
+
+}
+
+</script>
+  </body>
+  
+  </html>
